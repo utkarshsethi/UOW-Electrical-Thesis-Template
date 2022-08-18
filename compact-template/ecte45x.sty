@@ -1,0 +1,148 @@
+%
+% This is ecte45x.sty
+%
+\setlength{\headheight}{15pt}
+\parindent 0pt
+\parskip 6pt
+
+\brokenpenalty=10000
+\renewcommand{\bibname}{References}
+\renewcommand{\baselinestretch}{0.95}
+
+% Uncomment these line if you want continuous equation, table and figure 
+% numbering.
+%\def\cl@chapter{\@elt{section}\@elt{footnote}}
+%\def\thefigure{\@arabic\c@figure}
+%\def\thetable{\@arabic\c@table}
+%\def\theequation{\arabic{equation}}
+
+%\def\@xfloat#1[#2]{\ifhmode \@bsphack\@floatpenalty -\@Mii\else
+%   \@floatpenalty-\@Miii\fi\def\@captype{#1}\ifinner
+%      \@parmoderr\@floatpenalty\z@
+%    \else\@next\@currbox\@freelist{\@tempcnta\csname ftype@#1\endcsname
+%       \multiply\@tempcnta\@xxxii\advance\@tempcnta\sixt@@n
+%       \@tfor \@tempa :=#2\do
+%                        {\if\@tempa h\advance\@tempcnta \@ne\fi
+%                         \if\@tempa t\advance\@tempcnta \tw@\fi
+%                         \if\@tempa b\advance\@tempcnta 4\relax\fi
+%                         \if\@tempa p\advance\@tempcnta 8\relax\fi
+%         }\global\count\@currbox\@tempcnta}\@fltovf\fi
+%    \global\setbox\@currbox\vbox\bgroup 
+%    \def\baselinestretch{1}\@normalsize
+%    \boxmaxdepth\z@
+%    \hsize\columnwidth \@parboxrestore}
+%\long\def\@footnotetext#1{\insert\footins{\def\baselinestretch{1}\footnotesize
+%    \interlinepenalty\interfootnotelinepenalty 
+%    \splittopskip\footnotesep
+%    \splitmaxdepth \dp\strutbox \floatingpenalty \@MM
+%    \hsize\columnwidth \@parboxrestore
+%   \edef\@currentlabel{\csname p@footnote\endcsname\@thefnmark}\@makefntext
+%    {\rule{\z@}{\footnotesep}\ignorespaces
+%      #1\strut}}}
+%
+\def\submitdate#1{\gdef\@submitdate{#1}}
+\def\degreetitle#1{\gdef\@degreetitle{#1}}
+\def\supervisor#1{\gdef\@supervisor{#1}}
+\def\studentid#1{\gdef\@studentid{#1}}
+\def\@title{}\def\@author{}
+\newif\iffigurespage \newif\iftablespage
+\figurespagetrue \tablespagetrue
+
+\def\titlep{
+	\thispagestyle{empty}
+	\begin{center}
+	\Large{\textbf{\@title}}
+	\vskip13mm
+	\large{A thesis submitted in partial fulfilment of the\\
+	requirements for the award of the degree}
+	\vskip12mm
+	\large{\textbf{\@degreetitle}}
+	\vskip12mm
+	\large{\textbf{from}}
+	\vskip12mm
+	\large{\textbf{University of Wollongong}}
+	\vskip12mm
+	\large{\textbf{by}}
+	\vskip12mm
+	\textbf{\@author}
+	\vskip12mm
+	\textbf{School of Electrical, Computer and Telecommunications Engineering}
+	\vskip12mm
+	\textbf{\@submitdate}
+	\vskip12mm
+	Supervisor:~\@supervisor
+	\end{center}
+	\newpage}
+\renewcommand{\baselinestretch}{1.5}
+\def\sog{
+	\thispagestyle{empty}
+	\chapter*{Statement of Originality}
+
+I, \@author, declare that this thesis, submitted as part of the
+requirements for the award of Bachelor of Engineering, in the School of
+Electrical, Computer and Telecommunications Engineering, University of
+Wollongong, is wholly my own work unless otherwise referenced or acknowledged.
+The document has not been submitted for qualifications or assessment at any
+other academic institution.
+	
+As author of this thesis, I also hereby grant, subject to any prior confidentially agreements, SECTE permission, to use, distribute, publish, exhibit, record, digitize broadcast, reproduce and archive this work for the purposes of further research and teaching.
+
+\textit{(strike out that which does not apply)}\\
+This thesis;\\
+\begin{tabular}{p{5cm} l }
+ \ IS &\\
+ \ IS NOT &\\ 
+\end{tabular}\\
+
+subject to a prior confidentially agreement. 
+
+	\vspace{2cm}
+	\begin{tabular}{r p{8cm}}
+	Signature:&\hrulefill\\
+	&\\
+	Print Name:&\hrulefill\\
+	&\\
+	Student ID Number:&\@studentid\\
+	&\\
+	Date:&\hrulefill\\
+	\end{tabular}
+	\newpage}
+
+\def\beforeabstract{
+	\pagenumbering{roman}
+	\pagestyle{empty}
+	\titlep
+  \pagestyle{plain}}
+
+\def\tocsection#1{
+	\chapter*{#1}
+	\addcontentsline{toc}{chapter}{#1}}
+
+\def\notocsection#1{
+	\chapter*{#1}}
+
+\def\afterabstract{\newpage
+	\sog
+	\tableofcontents
+	\newpage
+	\iftablespage
+		{\addvspace{10pt}
+		\let\saveaddvspace=\addvspace
+		\def\addvspace##1{}
+		\listoftables
+		\let\addvspace=\saveaddvspace}
+		\newpage
+	\fi
+	\iffigurespage
+		{\addvspace{10pt}
+		\let\saveaddvspace=\addvspace
+		\def\addvspace##1{}
+		\listoffigures
+		\let\addvspace=\saveaddvspace}
+		\newpage
+	\fi
+	\pagestyle{headings}}
+
+% Start with pagestyle{headings} in case front matter isn't processed
+\pagestyle{headings}
+\makeatother
