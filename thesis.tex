@@ -144,9 +144,12 @@
 % case, is in the file thesis.bib, but of course you can use your own
 % filename. 
 %
-\bibliographystyle{IEEEtran}
+% use \citet for auth[] & \citep for only []
+%Natbib + IEEE
+%https://www.imperial.ac.uk/media/imperial-college/administration-and-support-services/library/public/LaTeX-example-IEEE-apr-2019.pdf
+\bibliographystyle{IEEEtranN}
 \addcontentsline{toc}{chapter}{References}
-\bibliography{thesis}
+\bibliography{bibliography.bib}
 \label{refs}
 %
 % Include the appendices.
