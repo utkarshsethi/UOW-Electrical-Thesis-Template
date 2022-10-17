@@ -13,6 +13,9 @@
 % for the inclusion of eps and ps graphics
 \usepackage{graphicx}
 %
+% for the inclusion of pdfs
+\usepackage{pdfpages}
+%
 % For better image alignment
 \usepackage{adjustbox}
 %
@@ -84,12 +87,13 @@
 % originality are correctly created.
 %
 \degreetitle{Master of Engineering (Electrical)}
-\submitdate{September, 2022}
+\submitdate{\today}
 % Don't forget the proper title for your supervisor.
-\supervisor{Dr John Smith}
+\supervisor{Dr Peter Vial}
 \title{The Title of My Thesis}
-\author{Author Name} %Your name here
-\studentid{1234567}
+\author{Utkarsh Sethi}
+\studentid{7336330}
+
 %
 % establish the fancy headers to be used throughout the document
 \rhead{\thepage}
@@ -117,7 +121,7 @@
 % the "notocsection" environment (so it doesn't get included in the table of
 % contents). See acknowledgements.tex.
 %
-\include{acknowledgements}
+% \include{acknowledgements}
 %
 % The "afterabstract" macro creates the statement of originality, table of
 % contents, list of tables and list of figures.
@@ -133,16 +137,22 @@
 % need only include this section when submitting your ECTE458 report. If this
 % is your ECTE451 report, comment out (%) or remove the following \include.
 %
-\include{changes}
+% \include{changes}
 %
 \pagenumbering{arabic}
 \pagestyle{fancy}
-%
+%tocsection
 % Now go through and input the bulk of the thesis.
 %
 \include{chapter1}
-\include{chapter2}
+% \include{chapter2}
+\include{introduction}
+% \include{LiteratureReview}
+% \include{ResearchDesign}
 %
+
+
+
 % Use the ieee bibliography style. The bibliography source (database,) in this
 % case, is in the file thesis.bib, but of course you can use your own
 % filename. 
@@ -152,15 +162,17 @@
 %https://www.imperial.ac.uk/media/imperial-college/administration-and-support-services/library/public/LaTeX-example-IEEE-apr-2019.pdf
 \bibliographystyle{IEEEtranN}
 \bibliography{bibliography.bib}
+% \bibliography{ref.bib}
 \addcontentsline{toc}{chapter}{References}
-
 \label{refs}
+\newpage
 %
 % Include the appendices.
 %
 \appendix
-\input{appendix1}
-\input{appendix2}
+% \input{LiteraturePlanner.tex}
+% \input{appendix1}
+% \input{appendix2}
 %%
 %% End the document
 %%
