@@ -87,12 +87,12 @@
 % originality are correctly created.
 %
 \degreetitle{Master of Engineering (Electrical)}
-\submitdate{\today}
+\submitdate{September, 2022}
 % Don't forget the proper title for your supervisor.
-\supervisor{Dr Peter Vial}
+\supervisor{Dr John Smith}
 \title{The Title of My Thesis}
-\author{Utkarsh Sethi}
-\studentid{7336330}
+\author{Author Name} %Your name here
+\studentid{1234567}
 
 %
 % establish the fancy headers to be used throughout the document
@@ -144,11 +144,8 @@
 %tocsection
 % Now go through and input the bulk of the thesis.
 %
-% \include{chapter1}
-% \include{chapter2}
-\include{introduction}
-\include{LiteratureReview}
-\include{ResearchDesign}
+\include{chapter1}
+\include{chapter2}
 %
 
 
@@ -162,7 +159,6 @@
 %https://www.imperial.ac.uk/media/imperial-college/administration-and-support-services/library/public/LaTeX-example-IEEE-apr-2019.pdf
 \bibliographystyle{IEEEtranN}
 \bibliography{bibliography.bib}
-% \bibliography{ref.bib}
 \addcontentsline{toc}{chapter}{References}
 \label{refs}
 \newpage
@@ -170,9 +166,11 @@
 % Include the appendices.
 %
 \appendix
-\input{LiteraturePlanner.tex}
-% \input{appendix1}
-% \input{appendix2}
+\input{appendix1}
+\input{appendix2}
+%
+% Include PDF doc in appendix
+\includepdf[pages=-, pagecommand={\pagestyle{fancy}}, addtotoc={1, chapter, 2, Chapter Name, ChapterLabel}]{PDF_Name.pdf}
 %%
 %% End the document
 %%
